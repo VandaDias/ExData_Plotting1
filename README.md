@@ -1,3 +1,8 @@
+## Files
+
+The files in this directory are the result of the first assignment for the course Exploring Data Analysis of the John Hopkins University.
+There are four plots and four R scripts, and their description and analysis is described bellow (by Prof. Peng).
+
 ## Introduction
 
 This assignment uses data from
