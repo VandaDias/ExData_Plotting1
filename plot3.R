@@ -4,12 +4,13 @@ library(lubridate)
 
 # roughly checks if computer has enough memory to run the dataset
 # 2,075,259 rows by 9 columns
-dataset_size <- round(2075259*9*8/2^{20}/1024, 3) #in Gb
+dataset_size <- round(2075259*9*8/2^{20}/1024, 2) #in Gb
 try(if(dataset_size > 4) stop("not enough memory"))
 
 # reads household power consumption table
+hpc_zipfile <- "exdata%2Fdata%2Fhousehold_power_consumption.zip"
 hpc_column_classes <- c(rep("character", 2), rep("numeric", 7))
-hpc_all <- read.table("household_power_consumption.txt", header = TRUE, sep = ";", colClasses = hpc_column_classes, na.strings = "?", row.names = NULL)
+hpc_all <- read.table(unzip(hpc_zipfile, "household_power_consumption.txt"), header = TRUE, sep = ";", colClasses = hpc_column_classes, na.strings = "?", row.names = NULL)
 
 # formats and selects dates
 hpc_all$DateFormated <- as.Date(hpc_all$Date, "%d/%m/%Y")
